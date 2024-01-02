@@ -41,13 +41,6 @@ import About from './components/About/About.jsx';
 
 const App = () => {
   const dispatch = useDispatch();
-  const [stripeApiKey, setStripeApiKey] = useState('');
-
-  const getStripeApiKey = async () => {
-    const { data } = await axios.get('/api/v1/stripeapikey');
-    setStripeApiKey(data.stripeApiKey);
-    return data.stripeApiKey;
-  };
 
   useEffect(() => {
     WebFont.load({
@@ -119,11 +112,9 @@ const App = () => {
             path="/process/payment"
             element={
               <ProtectedRoute>
-                {getStripeApiKey() && (
-                  <Elements stripe={loadStripe(stripeApiKey)}>
-                    <Payment />
-                  </Elements>
-                )}
+                <Elements stripe={null}>
+                  <Payment />
+                </Elements>
               </ProtectedRoute>
             }
           />
