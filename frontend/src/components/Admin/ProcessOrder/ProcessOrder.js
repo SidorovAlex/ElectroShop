@@ -1,13 +1,12 @@
 import './ProcessOrder.css';
 import { Fragment, useEffect, useState } from 'react';
 import MetaData from '../../layout/MetaData';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import SideBar from '../SideBar/SideBar';
-import { Button } from '@mui/material';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Typography } from '@mui/material';
+
+import { useSelector, useDispatch } from 'react-redux';
 import { AccountTree } from '@mui/icons-material';
-import { useSelector, useDispatch } from 'react-redux'; // Add this line
 import {
   clearUpdateOrderStatusAction,
   getSingleOrderAction,
@@ -16,6 +15,8 @@ import {
 import { clearErrorAction } from '../../../redux/actions/appAction';
 import Loader from '../../Loader/Loader';
 import NotFound from '../../layout/NotFound/NotFound';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ProcessOrder = () => {
   const [status, setStatus] = useState('');
@@ -24,6 +25,7 @@ const ProcessOrder = () => {
   );
   const { error } = useSelector((state) => state.appState);
   const dispatch = useDispatch();
+
   const { id } = useParams();
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const ProcessOrder = () => {
     }
 
     dispatch(getSingleOrderAction(id));
-  }, [dispatch, id, updateOrderStatus]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [dispatch, id, updateOrderStatus]);
 
   if (error) {
     toast.error(error.response.data.message);
@@ -69,13 +71,69 @@ const ProcessOrder = () => {
                   >
                     <div>
                       <div className="process-shipping-area">
-                        {/* ... existing code ... */}
+                        <Typography>Shipping Info</Typography>
+                        <div className="process-shipping-area-box">
+                          <p>Name:</p>
+                          <span>{order.user?.name}</span>
+                          {/* Add more shipping details as needed */}
+                        </div>
+
+                        <Typography>Payment</Typography>
+                        <div className="process-shipping-area-box">
+                          <p
+                            className={
+                              order.paymentInfo &&
+                              order.paymentInfo.status === 'succeeded'
+                                ? 'green-color'
+                                : 'red-color'
+                            }
+                          >
+                            {order.paymentInfo &&
+                            order.paymentInfo.status === 'succeeded'
+                              ? 'PAID'
+                              : 'NOT PAID'}
+                          </p>
+                          <p>Amount:</p>
+                          <span>{order.totalPrice && order.totalPrice}</span>
+                          {/* Add more payment details as needed */}
+                        </div>
+
+                        <Typography>Order Status</Typography>
+                        <div className="process-shipping-area-box">
+                          <p
+                            className={
+                              order.orderStatus &&
+                              order.orderStatus === 'Delivered'
+                                ? 'green-color'
+                                : 'red-color'
+                            }
+                          >
+                            {order.orderStatus && order.orderStatus}
+                          </p>
+                          {/* Add more order status details as needed */}
+                        </div>
                       </div>
                       <div className="process-cart-items">
-                        {/* ... existing code ... */}
+                        <Typography>Your Cart Items:</Typography>
+                        <div className="process-cart-items-container">
+                          {order.orderItems &&
+                            order.orderItems.map((item) => (
+                              <div key={item.product}>
+                                <img src={item.image} alt="Product" />
+                                <Link to={`/product/${item.product}`}>
+                                  {item.name}
+                                </Link>{' '}
+                                <span>
+                                  {item.quantity} X ${item.price} ={' '}
+                                  <b>${item.price * item.quantity}</b>
+                                </span>
+                              </div>
+                            ))}
+                          {/* Add more cart item details as needed */}
+                        </div>
                       </div>
                     </div>
-                    {/*  */}
+
                     <div
                       style={{
                         display:
@@ -105,9 +163,9 @@ const ProcessOrder = () => {
                           </select>
                         </div>
 
-                        <Button className="processorder-btn" type="submit">
+                        <button className="processorder-btn" type="submit">
                           Process Order
-                        </Button>
+                        </button>
                       </form>
                     </div>
                   </div>
@@ -117,6 +175,7 @@ const ProcessOrder = () => {
           )}
         </Fragment>
       )}
+      <ToastContainer />
     </Fragment>
   );
 };

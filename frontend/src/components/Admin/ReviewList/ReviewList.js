@@ -1,19 +1,20 @@
 import './ReviewList.css';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import MetaData from '../../layout/MetaData';
 import SideBar from '../SideBar/SideBar';
-import { Delete } from '@mui/icons-material';
+import { Delete, Inventory } from '@mui/icons-material';
 import { Button } from '@mui/material';
 import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect, Fragment } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { clearErrorAction } from '../../../redux/actions/appAction';
 import {
+  
   getProductReviewsAction,
   deleteProductReviewAction,
   clearDeleteReviewStatusAction,
 } from '../../../redux/actions/productAction';
+import { clearErrorAction } from '../../../redux/actions/appAction';
 
 const ReviewList = () => {
   const [productId, setProductId] = useState('');
@@ -51,8 +52,29 @@ const ReviewList = () => {
   };
 
   const columns = [
-    // ... existing columns ...
-
+    { field: 'id', headerName: 'Review ID', minWidth: 200, flex: 0.5 },
+    {
+      field: 'user',
+      headerName: 'User',
+      minWidth: 200,
+      flex: 0.6,
+    },
+    {
+      field: 'comment',
+      headerName: 'Comment',
+      minWidth: 350,
+      flex: 1,
+    },
+    {
+      field: 'rating',
+      headerName: 'Rating',
+      type: 'number',
+      minWidth: 180,
+      flex: 0.4,
+      cellClassName: (params) => {
+        return params.row.rating >= 3 ? 'green-color' : 'red-color';
+      },
+    },
     {
       field: 'actions',
       flex: 0.3,
@@ -84,7 +106,6 @@ const ReviewList = () => {
   return (
     <Fragment>
       <MetaData title={`ALL REVIEWS - Admin`} />
-
       <div className="dashboard">
         <SideBar />
         <div className="productreview-container">
@@ -92,7 +113,17 @@ const ReviewList = () => {
             className="productreview-form"
             onSubmit={productReviewsSubmitHandler}
           >
-            {/* ... existing form input fields ... */}
+            <h1 className="productreview-form-heading">ALL REVIEWS</h1>
+            <div>
+              <Inventory />
+              <input
+                type="text"
+                placeholder="Product Id"
+                required
+                value={productId}
+                onChange={(e) => setProductId(e.target.value)}
+              />
+            </div>
             <Button
               id="createProductBtn"
               className="productreview-btn"
@@ -117,7 +148,9 @@ const ReviewList = () => {
           )}
         </div>
       </div>
+      <ToastContainer />
     </Fragment>
   );
 };
+
 export default ReviewList;

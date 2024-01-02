@@ -1,7 +1,5 @@
 import './UpdateProduct.css';
 import { Fragment, useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import MetaData from '../../layout/MetaData';
 import SideBar from '../SideBar/SideBar';
 import {
@@ -23,6 +21,8 @@ import {
 } from '../../../redux/actions/productAction';
 import Loader from '../../Loader/Loader';
 import NotFound from '../../layout/NotFound/NotFound';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UpdateProduct = () => {
   const dispatch = useDispatch();
@@ -49,6 +49,11 @@ const UpdateProduct = () => {
     'Games',
     'Others',
   ];
+
+  if (error) {
+    toast.error(error.response.data.message);
+    dispatch(clearErrorAction());
+  }
 
   useEffect(() => {
     if (updateProductStatus) {
@@ -130,8 +135,94 @@ const UpdateProduct = () => {
                     onSubmit={submitProductHandler}
                   >
                     <h1> Update Product</h1>
-                    {/* ... other form input fields ... */}
+                    <div>
+                      <Spellcheck />
+                      <input
+                        type="text"
+                        placeholder="Product Name"
+                        required
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <AttachMoney />
+                      <input
+                        type="number"
+                        placeholder="Product Price"
+                        required
+                        value={price}
+                        onChange={(e) => setPrice(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Description />
+                      <textarea
+                        placeholder="Product Description"
+                        required
+                        rows={1}
+                        cols={30}
+                        value={description}
+                        onChange={(e) => setDescription(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <AccountTree />
+                      <select
+                        onChange={(e) => setCategory(e.target.value)}
+                        value={category}
+                        required
+                      >
+                        <option value=""> Choose Category </option>
+                        {categories.map((item) => (
+                          <option value={item} key={item}>
+                            {item}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div>
+                      <Storage />
+                      <input
+                        type="number"
+                        placeholder="Stock"
+                        required
+                        value={stock}
+                        onChange={(e) => setStock(e.target.value)}
+                      />
+                    </div>
+                    <div className="updateproduct-form-file">
+                      <Image />
+                      <input
+                        type="file"
+                        name="avatar"
+                        accept="image/*"
+                        multiple
+                        onChange={updateProductImagesChange}
+                      />
+                    </div>
+                    <div className="updateproduct-form-image">
+                      {oldImages &&
+                        oldImages.map((item, index) => (
+                          <img
+                            src={item.url}
+                            alt={`Img-${index + 1}`}
+                            key={index}
+                          />
+                        ))}
+                    </div>
+                    <div className="updateproduct-form-image">
+                      {imagesPreview &&
+                        imagesPreview.map((item, index) => (
+                          <img
+                            src={item}
+                            alt={`Img-${index + 1}`}
+                            key={index}
+                          />
+                        ))}
+                    </div>
                     <Button className="updateproduct-btn" type="submit">
+                      {' '}
                       Update Product
                     </Button>
                   </form>
@@ -141,6 +232,7 @@ const UpdateProduct = () => {
           )}
         </Fragment>
       )}
+      <ToastContainer />
     </Fragment>
   );
 };
