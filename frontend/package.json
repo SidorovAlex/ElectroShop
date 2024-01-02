@@ -9,6 +9,7 @@
     "@mui/lab": "^5.0.0-alpha.110",
     "@mui/material": "^5.10.16",
     "@mui/x-data-grid": "^5.17.8",
+    "@mui/x-tree-view": "^6.17.0",
     "@reduxjs/toolkit": "^1.8.3",
     "@stripe/react-stripe-js": "^1.13.0",
     "@stripe/stripe-js": "^1.42.0",

@@ -1,7 +1,7 @@
 import './SideBar.css';
 import { ExpandMore, PostAdd, Add, ImportExport, ListAlt, Dashboard, RateReview, People } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-import { TreeView, TreeItem } from '@mui/lab';
+import { TreeView,TreeItem } from '@mui/x-tree-view';
 
 
 const SideBar = () => {
