@@ -1,0 +1,198 @@
+.empty-cart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: auto;
+    padding: 0 10vmax;
+    align-self: flex-start;
+}
+
+.empty-cart svg {
+    font-size: 5vmax;
+    color: tomato;
+}
+
+.empty-cart p {
+    font-size: 2vmax;
+}
+
+.empty-cart a {
+    background-color: rgb(51, 51, 51);
+    padding: 1vmax 3vmax;
+    color: white;
+    font: 400 1vmax "Roboto";
+    border: none;
+    cursor: pointer;
+    border-radius: .1rem;
+    margin-top: 2rem;
+}
+
+
+.cart {
+    padding: 2vmax 5vmax;
+    margin-bottom: auto;
+}
+
+.cart-header {
+    background-color: tomato;
+    width: 90%;
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    margin: auto;
+    color: white;
+    font: 300 .7vmax "Roboto";
+}
+
+.cart-header p {
+    margin: 10px;
+}
+
+.cart-header p:last-child {
+    text-align: right;
+}
+
+.cart-container {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+
+}
+
+.cart-container .cart-input {
+    display: flex;
+    height: 8vmax;
+    align-items: center;
+}
+
+.cart-container .cart-input button {
+    border: none;
+    background-color: rgba(0, 0, 0, .642);
+    transition: all .3s;
+    cursor: pointer;
+    color: white;
+    padding: .5vmax;
+}
+
+.cart-container .cart-input button:hover {
+    background-color: rgba(0, 0, 0, 0.884);
+   
+}
+
+.cart-container .cart-input input {
+    outline: none;
+    border: none;
+    color: rgba(0, 0, 0, 0.822);
+    padding: .5vmax;
+    box-sizing: content-box;
+    width: 2vmax;
+    text-align: center;
+    font: 400 1vmax "Roboto";
+}
+
+.cart-container .cart-subtotal {
+    color: rgba(0, 0, 0, 0.822);
+    padding: .5vmax;
+    display: flex;
+    justify-content: flex-end;
+    font: 300 1vmax cursive;
+    align-items: center;
+}
+
+.cart-gross-profit {
+    display: grid;
+    grid-template-columns: 2fr 1.2fr;
+}
+
+.cart-gross-profitbox {
+    border-top: 3px solid tomato;
+    margin: 1vmax 4vmax;
+    display: flex;
+    justify-content: space-between;
+    font: 300 1vmax "Roboto";
+    padding: 2vmax 0;
+}
+
+.checkout-btn {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.checkout-btn > button {
+    background-color: tomato;
+    padding: .8vmax 4vmax;
+    width: 50%;
+    color: white;
+    border-radius: 30px;
+    font: 300 .8vmax "Roboto";
+    cursor: pointer;
+    margin: 1vmax 4vmax;
+    border: none;
+    transition: all .3s;
+}
+
+.checkout-btn > button:hover {
+    background-color: rgb(221, 59, 30);
+}
+
+@media screen and (max-width: 600px) {
+    .cart {
+        padding: 0;
+        min-height: 69vh;
+        margin-bottom: 2rem;
+    }
+    
+    .cart-header {
+        width: 100%;
+        grid-template-columns: 3fr 1fr 1fr;
+        font: 300 1.7vmax "Roboto";
+    }
+    
+ 
+  
+    .cart-container {
+        width: 100%;
+        grid-template-columns: 3fr 1fr 1fr;
+    
+    }
+    
+    .cart-container .cart-input {
+        height: 20vmax;
+    }
+    
+    .cart-container .cart-input button {
+        padding: .5rem;
+    }
+
+    .cart-container .cart-input input {
+        padding: .4rem;
+        font: 400 1.8vmax "Roboto";
+    }
+    
+    .cart-container .cart-subtotal {
+        padding: 2vmax;
+        font: 300 1.5vmax cursive;
+        height: 20vmax;
+    }
+    
+    .cart-gross-profit {
+        grid-template-columns: 0fr 2fr;
+    }
+    
+    .cart-gross-profitbox {
+        font: 300 2vmax "Roboto";
+        padding: 2vmax;
+    }
+    
+    .checkout-btn > button {
+        padding: 2vmax 4vmax;
+        font: 300 2vmax "Roboto";
+        width: 100%;
+    }
+    
+    .checkout-btn > button:hover {
+        background-color: rgb(221, 59, 30);
+    }
+}

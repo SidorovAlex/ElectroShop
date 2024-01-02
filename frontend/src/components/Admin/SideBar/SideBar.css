@@ -1,0 +1,36 @@
+.sidebar {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.sidebar div {
+    background: rgb(255, 255, 255)!important;
+}
+
+.sidebar a , .sidebar > ul > li {
+    text-decoration: none;
+    color: rgba(0, 0, 0, .6);
+    transition: all .4s;
+    padding: 2rem;
+    font: 200 1rem 'Roboto';
+}
+
+.sidebar > ul > li > ul a {
+    padding: 0rem .5rem;
+}
+
+.sidebar a:hover , .sidebar > ul > li:hover{
+    transform: scale(1.1);
+    color: tomato;
+}
+
+.sidebar a p {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar a p svg {
+    margin-right: .5rem;
+}

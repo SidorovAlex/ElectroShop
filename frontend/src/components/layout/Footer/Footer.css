@@ -1,0 +1,109 @@
+footer {
+    padding: 2vmax;
+    background-color: rgb(34, 33, 33);
+    width: 100%;
+    color: white;
+    display: flex;
+    align-items: center;
+    align-self: flex-end;
+}
+
+.leftFooter {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leftFooter h4 {
+    font-family: "Roboto";
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.leftFooter img {
+    width: 10vmax;
+    margin: 1vmax;
+    cursor: pointer;
+}
+
+.midFooter {
+    width: 40%;
+    text-align: center;
+}
+
+.midFooter h1 {
+    font-size: 2.5rem;
+    font-family: "Roboto";
+    color: #eb4034;
+    margin-bottom: 1rem;
+}
+
+.midFooter p {
+    max-width: 60%;
+    margin: 1vmax auto;
+    font-size: 1rem;
+}
+
+.rightFooter {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rightFooter h4 {
+    font-family: "Roboto";
+    font-size: 1.2rem;
+    text-decoration: underline;
+}
+
+.rightFooter a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    margin: .5vmax;
+    transition: all .5s;
+}
+
+.rightFooter a:hover {
+    color: #eb4034;
+}
+
+
+@media screen and (max-width: 1180px) {
+    .leftFooter h4 {
+        font-size: 1rem;
+    }
+
+    .midFooter h1 {
+        font-size: 2rem;
+    }
+
+    .midFooter p {
+     font-size: .9rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .leftFooter h4 {
+        font-size: .8rem;
+    }
+
+    .midFooter h1 {
+        font-size: 1.6rem;
+    }
+
+    .midFooter p {
+        font-size: .8rem;
+       }
+
+    .rightFooter h4 {
+        font-size: 1.1rem;
+    }
+
+    .rightFooter a {
+        font-size: .9rem;
+    }
+}

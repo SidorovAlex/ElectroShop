@@ -1,0 +1,56 @@
+.orderlist-container {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    border-left: 1px solid rgba(0, 0, 0, .178);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.orderlist-heading {
+    font: 400 2rem 'Roboto';
+    padding: .5vmax;
+    color: rgba(0, 0, 0, 0.692);
+    transition: all .5s;
+    margin: 2rem;
+    text-align: center;
+}
+
+.orderlist-table {
+    color: white;
+    border: none !important;
+    margin: 0 2rem;
+}
+
+.orderlist-table div {
+    font: 300 1vmax 'Roboto';
+    color: rgba(0, 0, 0, .666);
+    border: none !important;
+}
+
+.orderlist-table a , .orderlist-table button {
+    color:rgba(0, 0, 0, .555);
+    transition: all .5s;
+}
+
+.orderlist-table a:hover {
+    color: tomato;
+}
+
+.orderlist-table button:hover {
+    background: transparent;
+    color: rgb(250, 63, 29);
+}
+
+.MuiDataGrid-columnHeaders div {
+    color: white!important;
+}
+@media  screen and (max-width: 600px) {
+    .orderlist-table div {
+        font: 300 4vw 'Roboto';
+    }
+
+.orderlist-heading {
+    font-size: 1.3rem;
+}
+}

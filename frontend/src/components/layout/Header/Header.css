@@ -1,0 +1,19 @@
+.site-logo {
+  width: 12rem;
+}
+
+.header {
+  background-image: linear-gradient(to right, #635dc0, #3027ae);
+  width: 100%;
+  padding-right: 1rem;
+  padding-top: 20px;
+}
+.css-1t6c9ts {
+  justify-content: right;
+}
+
+@media screen and (max-width: 600px) {
+  .site-logo {
+    width: 9rem;
+  }
+}

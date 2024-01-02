@@ -1,0 +1,17 @@
+.MuiStepConnector-line {
+    display: none!important;
+}
+
+.MuiStepConnector-root {
+    height: 1px;
+    background-color: rgba(0, 0, 0, .243);
+}
+
+.MuiStepConnector-active, .MuiStepConnector-complete {
+    background-color: tomato;
+}
+
+.checkout-step {
+    padding-top: 4rem;
+    margin-bottom: 4rem;
+}

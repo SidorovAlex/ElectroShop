@@ -1,0 +1,207 @@
+.processorder-container {
+    width: 100%;
+    background-color: rgb(221, 221, 221);
+    border-left: 1px solid rgba(0, 0, 0, .175);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.order-details-page {
+    background-color: white;
+    display: grid;
+    grid-template-columns: 6fr 3fr;
+    padding-bottom: 2rem;
+  }
+  
+  .order-details-page > div:last-child {
+    border-left: 1px solid rgba(0, 0, 0, 0.247);
+  }
+
+  .process-shipping-area{
+    padding: 5vmax;
+    padding-bottom: 0%;
+  }
+  
+  .process-shipping-area> p {
+    font: 400 1.8vmax "Roboto";
+  }
+  
+  .process-shipping-area-box,
+  .process-cart-items-container{
+    margin: 2vmax;
+  }
+  
+  .process-shipping-area-box > div {
+    display: flex;
+    margin: 1vmax 0;
+  }
+  
+  .process-shipping-area-box > div > p {
+    font: 400 1vmax "Roboto";
+    color: black;
+  }
+  .process-shipping-area-box > div > span {
+    margin: 0 1vmax;
+    font: 100 1vmax "Roboto";
+    color: #575757;
+  }
+
+  .process-cart-items {
+    padding: 5vmax;
+    padding-top: 2vmax;
+  }
+  .process-cart-items > p {
+    font: 400 1.8vmax "Roboto";
+  }
+  
+  
+  .process-cart-items-container {
+    max-height: 20vmax;
+    overflow-y: auto;
+  }
+  
+  .process-cart-items-container > div {
+    display: flex;
+    font: 400 1vmax "Roboto";
+    align-items: center;
+    justify-content: space-between;
+    margin: 2vmax 0;
+  }
+  
+  .process-cart-items-container > div > img {
+    width: 3.5vmax!important;
+  }
+  
+  .process-cart-items-container > div > a {
+    color: #575757;
+    margin: 0 2vmax;
+    width: 60%;
+    text-decoration: none;
+  }
+  
+  .process-cart-items-container > div > span {
+    font: 100 1vmax "Roboto";
+    color: #5e5e5e;
+  }
+
+  .processorder-form {
+    margin: 5vmax 0;
+    padding: 3vmax;
+    background-color: white;
+  }
+  
+  .processorder-form > div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+  .processorder-form > div > select {
+    padding: 1vmax 4vmax;
+    margin: 2rem 0;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.267);
+    border-radius: 4px;
+    font: 300 0.9vmax cursive;
+    outline: none;
+  }
+  
+  .processorder-form > div > svg {
+    position: absolute;
+    transform: translateX(1vmax);
+    font-size: 1.6vmax;
+    color: rgba(0, 0, 0, 0.623);
+  }
+
+.processorder-btn {
+    border: none;
+    background-color: tomato!important;
+    color: white!important;
+    font: 300 0.9vmax "Roboto";
+    width: 100%;
+    padding: 0.8vmax;
+    cursor: pointer;
+    transition: all 0.5s;
+    border-radius: 4px;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.219);
+}
+
+@media screen and (max-width: 600px) {
+    .processorder-container {
+        background-color: rgb(255, 255, 255);
+        height: auto;
+    }
+
+    .order-details-page {
+        grid-template-columns: 1fr;
+        height: unset;
+      }
+    
+      .order-details-page > div:last-child {
+        border-left: 0;
+        border-top: 1px solid rgba(128, 56, 56, 0.247);
+
+      }
+    
+      .process-shipping-area> p {
+        font: 400 6vw "Roboto";
+      }
+    
+      .process-shipping-area-box > div {
+        display: flex;
+        margin: 6vw 0;
+      }
+    
+      .process-shipping-area-box > div > p {
+        font: 400 4vw "Roboto";
+      }
+      .process-shipping-area-box > div > span {
+        font: 100 4vw "Roboto";
+      }
+    
+      .process-cart-items-container > p {
+        font: 400 6vw "Roboto";
+      }
+    
+      .process-cart-items-container {
+        max-height: 50vw;
+      }
+    
+      .process-cart-items-container > div {
+        font: 400 4vw "Roboto";
+        margin: 4vw 0;
+      }
+    
+      .process-cart-items-container > div > img {
+        width: 10vw;
+      }
+    
+      .process-cart-items-container > div > a {
+        margin: 0;
+        width: 30%;
+      }
+    
+      .process-cart-items-container > div > span {
+        font: 100 4vw "Roboto";
+      }
+
+    .processorder-form {
+        padding: 5vmax;
+      }
+    
+      .processorder-form > div > select {
+        padding: 2.5vmax 5vmax;
+        font: 300 1.7vmax cursive;
+      }
+    
+      .processorder-form > div > svg {
+        font-size: 2.8vmax;
+      }
+
+    .processorder-btn {
+        font: 300 1.9vmax "Roboto";
+        padding: 1.8vmax;
+    }
+}

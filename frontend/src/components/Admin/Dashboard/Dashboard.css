@@ -1,0 +1,125 @@
+.dashboard {
+    width: 100vw;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+}
+
+.dashboard-container {
+    border-left: 1px solid rgba(0, 0, 0, 0.466);
+    background-color: rgb(255, 255, 255);
+    padding: 3rem 0;
+}
+
+.dashboard-container h1 {
+    color: rgba(0, 0, 0, 0.61);
+    font: 200 2rem 'Roboto';
+    margin: auto;
+    width: 50%;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.dashboard-summary {
+    margin: 2rem 0;
+}
+
+.dashboard-summary > div {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+.dashboard-summary > div > p {
+    background-color: rgba(70, 117, 218, 0.93);
+    margin: 0 2rem;
+    color: white;
+    width: 100%;
+    font: 300 1rem 'Roboto';
+    text-align: center;
+    padding: 1.5rem;
+    line-height: 2rem;
+}
+
+.dashboard-summary > div > p > strong {
+    font-size: 1.3rem;
+}
+
+.dashboard-summary-box-2 > a {
+    color: rgb(0, 0, 0);
+    font: 300 1.6vmax 'Roboto';
+    background-color: rgb(255, 233, 174);
+    text-decoration: none;
+    padding: 1.5rem;
+    margin: 2rem;
+    width: 10vmax;
+    height: 10vmax;
+    border-radius: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dashboard-summary-box-2 > a:first-child {
+    background-color: rgb(255, 110, 110);
+    color:rgb(255, 255, 255);
+}
+
+.dashboard-summary-box-2 > a:last-child {
+    background-color:rgba(51, 51, 51);
+    color:rgb(255, 255, 255);
+}
+
+.line-chart {
+    width: 80%;
+    height: 40vmax;
+    margin: auto;
+}
+
+.doughnut-chart {
+    width: 30vmax;
+    height: 40vmax;
+    margin: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-container {
+        border-left: none;
+    }
+
+    .dashboard-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .dashboard-summary-box-2 > a {
+        padding: .5rem;
+        margin: 1rem;
+        font: 300 .7rem 'Roboto';
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

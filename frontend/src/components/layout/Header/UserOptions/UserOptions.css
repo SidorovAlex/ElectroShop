@@ -1,0 +1,14 @@
+.speedDial {
+    position: fixed;
+    top: 4.5rem;
+    right: 1.5rem;
+    margin-left: 2rem;
+}
+
+.speedDialIcon {
+    width: inherit;
+    height: inherit;
+    border-radius: 100%;
+    background-color: gray;
+    overflow: hidden;
+}
